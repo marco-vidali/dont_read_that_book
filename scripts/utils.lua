@@ -23,3 +23,24 @@ function print_wrapped(text, x, y, color, max_pixel_width)
         print(l, x, y + (i-1)*6, color)
     end
 end
+
+function split_words(str)
+    local words = {}
+
+    for w in all(split(str," ")) do
+        add(words,w)
+    end
+
+    return words
+end
+
+function sub_words(words, w_start, w_end)
+    local s = ""
+
+    for i=w_start,w_end do
+        s ..= words[i]
+        if i < w_end then s ..= " " end
+    end
+
+    return s
+end
