@@ -18,17 +18,17 @@ function _update()
     end
 
     if btnp(4) then
-        if choice == 1 then
-            if not book.censored then
-                -- correct
+        if book.censored then
+            if choice == 1 then
+                awareness += 5
             else
-                -- wrong
+                awareness -= 2
             end
-        elseif choice == 2 then
-            if book.censored then
-                -- correct
+        else
+            if choice == 1 then
+                happiness += 2
             else
-                -- wrong
+                happiness -= 5
             end
         end
 
