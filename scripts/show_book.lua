@@ -19,17 +19,15 @@ function _update()
             else
                 -- wrong
             end
-
-            book = rnd(books)
         elseif choice == 2 then
             if book.censored then
                 -- correct
             else
                 -- wrong
             end
-
-            book = rnd(books)
         end
+
+        book = rnd(books)
     end
 end
 
