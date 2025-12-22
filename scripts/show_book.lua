@@ -1,6 +1,8 @@
 function _init()
     book = rnd(books)
     choice = 1
+    awareness = 50
+    happiness = 50
 end
 
 function _update()
@@ -34,15 +36,18 @@ end
 function _draw()
     cls()
 
-    print_wrapped(book.title, 0, 0, 7, 128)
-    print_wrapped(book.author, 0, 6, 7, 128)
-    print_wrapped(book.synopsis, 0, 12, 7, 128)
+    print("aWARENESS: " .. awareness .. "%", 0, 0, 7)
+    print("hAPPINESS: " .. happiness .. "%", 0, 6, 7)
+
+    print_wrapped(book.title, 0, 18, 7, 128)
+    print_wrapped(book.author, 0, 24, 7, 128)
+    print_wrapped(book.synopsis, 0, 30, 7, 128)
 
     if choice == 1 then
-        print("pass", 0, 50, 7)
-        print("censor", 30, 50, 5)
+        print("pass", 0, 60, 7)
+        print("censor", 30, 60, 5)
     elseif choice == 2 then
-        print("pass", 0, 50, 5)
-        print("censor", 30, 50, 7)
+        print("pass", 0, 60, 5)
+        print("censor", 30, 60, 7)
     end
 end
