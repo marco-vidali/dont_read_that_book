@@ -36,9 +36,8 @@ end
 function _draw()
     cls()
 
-    print(book.title, 7)
-    print(book.author, 7)
-
+    print_wrapped(book.title, 0, 0, 7, 128)
+    print_wrapped(book.author, 0, 6, 7, 128)
     print_wrapped(book.synopsis, 0, 12, 7, 128)
 
     if choice == 1 then
