@@ -1,6 +1,11 @@
+day = 1
+
 function _init()
-    day = 1
-    books_num = random_book_num()
+    hours = "08"
+    minutes = "00"
+    start_timer = time()
+
+    books_num = flr(5 + rnd(2 ^ day))
 
     awareness = 50
     happiness = 50
@@ -9,11 +14,35 @@ function _init()
     choice = 1
 end
 
-function random_book_num()
-    return flr(5 + rnd(2 ^ day))
-end
-
 function _update()
+    -- update hours
+    if (time() - start_timer) % 5 == 0 then
+        if hours == "08" then
+            hours = "09"
+        elseif hours == "09" then
+            hours = "10"
+        elseif hours == "10" then
+            hours = "11"
+        elseif hours == "11" then
+            hours = "12"
+        elseif hours == "12" then
+            hours = "13"
+        elseif hours == "13" then
+            hours = "14"
+        elseif hours == "14" then
+            hours = "15"
+        elseif hours == "15" then
+            hours = "16"
+        end
+    end
+
+    -- update minutes
+    if (time() - start_timer) % 5 < 2.5 then
+        minutes = "00"
+    else
+        minutes = "30"
+    end
+
     -- change choice selection
     if btnp(0) and choice > 1 then
         choice -= 1
@@ -48,8 +77,7 @@ function _update()
         else
             -- next day
             day += 1
-            book = rnd(books)
-            books_num = random_book_num()
+            _init()
         end
     end
 end
@@ -58,20 +86,21 @@ function _draw()
     cls()
 
     print("dAY " .. day, 0, 0, 7)
-    print("bOOKS LEFT: " .. books_num, 64, 0, 7)
+    print(hours .. ":" .. minutes, 109, 0, 7)
+    print("bOOKS LEFT: " .. books_num, 0, 6, 7)
 
-    print("aWARENESS: " .. awareness .. "%", 0, 12, 14)
-    print("hAPPINESS: " .. happiness .. "%", 0, 18, 10)
+    print("aWARENESS: " .. awareness .. "%", 0, 18, 14)
+    print("hAPPINESS: " .. happiness .. "%", 0, 24, 10)
 
-    print_wrapped(book.title, 0, 30, 12, 128)
-    print_wrapped(book.author, 0, 36, 9, 128)
-    print_wrapped(book.synopsis, 0, 42, 7, 128)
+    print_wrapped(book.title, 0, 36, 12, 128)
+    print_wrapped(book.author, 0, 42, 9, 128)
+    print_wrapped(book.synopsis, 0, 48, 7, 128)
 
     if choice == 1 then
-        print("pass", 0, 72, 11)
-        print("censor", 30, 72, 5)
+        print("pass", 0, 78, 11)
+        print("censor", 30, 78, 5)
     elseif choice == 2 then
-        print("pass", 0, 72, 5)
-        print("censor", 30, 72, 8)
+        print("pass", 0, 78, 5)
+        print("censor", 30, 78, 8)
     end
 end
