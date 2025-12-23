@@ -33,11 +33,12 @@ function _update()
             end
         end
 
-        if books_num > 0 then
+        if books_num > 1 then
             books_num -= 1
             book = rnd(books)
         else
             day += 1
+            book = rnd(books)
             books_num = flr(5 + rnd(day * 2))
         end
     end
