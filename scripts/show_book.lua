@@ -87,20 +87,21 @@ function _draw()
 
     print("dAY " .. day, 0, 0, 7)
     print(hours .. ":" .. minutes, 109, 0, 7)
-    print("bOOKS LEFT: " .. books_num, 0, 6, 6)
 
-    print("aWARENESS: " .. awareness .. "%", 0, 18, 14)
-    print("hAPPINESS: " .. happiness .. "%", 0, 24, 10)
+    print("aWARENESS: " .. awareness .. "%", 0, 12, 14)
+    print("hAPPINESS: " .. happiness .. "%", 0, 18, 10)
 
-    print_wrapped(book.title, 0, 36, 12, 128)
-    print_wrapped(book.author, 0, 42, 9, 128)
-    print_wrapped(book.synopsis, 0, 48, 7, 128)
+    print("bOOKS LEFT: " .. books_num, 0, 30, 6)
+
+    print_wrapped(book.title, 0, 42, 12, 128)
+    print_wrapped(book.author, 0, 48, 9, 128)
+    print_wrapped(book.synopsis, 0, 54, 7, 128)
 
     if choice == 1 then
-        print("pass", 0, 78, 11)
-        print("censor", 30, 78, 5)
+        print("pass", 0, 84, 11)
+        print("censor", 30, 84, 5)
     elseif choice == 2 then
-        print("pass", 0, 78, 5)
-        print("censor", 30, 78, 8)
+        print("pass", 0, 84, 5)
+        print("censor", 30, 84, 8)
     end
 end
