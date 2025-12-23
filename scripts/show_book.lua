@@ -8,7 +8,7 @@ function _init()
     minutes = "00"
     start_timer = time()
 
-    books_num = flr(rnd(day * 2)) + 1
+    books_num = flr(rnd(day ^ 1.2)) + 1
 
     book = rnd(books)
     choice = 1
