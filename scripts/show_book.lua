@@ -93,6 +93,11 @@ function _update()
             next_day()
         end
     end
+
+    -- game over
+    if awareness > 75 or happiness < 25 then
+        stop()
+    end
 end
 
 function next_day()
