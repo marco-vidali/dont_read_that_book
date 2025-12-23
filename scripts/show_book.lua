@@ -1,14 +1,14 @@
 day = 1
 
+awareness = 50
+happiness = 50
+
 function _init()
     hours = "08"
     minutes = "00"
     start_timer = time()
 
     books_num = flr(rnd(day * 2)) + 1
-
-    awareness = 50
-    happiness = 50
 
     book = rnd(books)
     choice = 1
