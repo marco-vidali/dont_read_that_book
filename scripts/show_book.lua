@@ -14,6 +14,7 @@ function random_book_num()
 end
 
 function _update()
+    -- change choice selection
     if btnp(0) and choice > 1 then
         choice -= 1
     end
@@ -22,14 +23,17 @@ function _update()
         choice += 1
     end
 
+    -- handle confirm button press
     if btnp(4) then
         if book.censored then
+            -- censored book
             if choice == 1 then
                 awareness += 5
             else
                 awareness -= 2
             end
         else
+            -- uncensored book
             if choice == 1 then
                 happiness += 2
             else
@@ -38,9 +42,11 @@ function _update()
         end
 
         if books_num > 1 then
+            -- more books left today
             books_num -= 1
             book = rnd(books)
         else
+            -- next day
             day += 1
             book = rnd(books)
             books_num = random_book_num()
