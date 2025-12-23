@@ -87,7 +87,7 @@ function _draw()
 
     print("dAY " .. day, 0, 0, 7)
     print(hours .. ":" .. minutes, 109, 0, 7)
-    print("bOOKS LEFT: " .. books_num, 0, 6, 7)
+    print("bOOKS LEFT: " .. books_num, 0, 6, 6)
 
     print("aWARENESS: " .. awareness .. "%", 0, 18, 14)
     print("hAPPINESS: " .. happiness .. "%", 0, 24, 10)
