@@ -1,12 +1,16 @@
 function _init()
     day = 1
-    books_num = flr(5 + rnd(2 ^ day))
+    books_num = random_book_num()
 
     awareness = 50
     happiness = 50
 
     book = rnd(books)
     choice = 1
+end
+
+function random_book_num()
+    return flr(5 + rnd(2 ^ day))
 end
 
 function _update()
@@ -39,7 +43,7 @@ function _update()
         else
             day += 1
             book = rnd(books)
-            books_num = flr(5 + rnd(day * 2))
+            books_num = random_book_num()
         end
     end
 end
