@@ -43,6 +43,21 @@ function _update()
         minutes = "30"
     end
 
+    -- day has ended
+    if hours == "16" and minutes == "00" then
+        for i = 1, books_num do
+            local j = flr(rnd(2))
+
+            if j == 0 then
+                awareness += 5
+            else
+                happiness += 2
+            end
+        end
+
+        next_day()
+    end
+
     -- change choice selection
     if btnp(0) and choice > 1 then
         choice -= 1
@@ -75,11 +90,14 @@ function _update()
             books_num -= 1
             book = rnd(books)
         else
-            -- next day
-            day += 1
-            _init()
+            next_day()
         end
     end
+end
+
+function next_day()
+    day += 1
+    _init()
 end
 
 function _draw()
