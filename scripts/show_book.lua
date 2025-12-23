@@ -5,7 +5,7 @@ function _init()
     minutes = "00"
     start_timer = time()
 
-    books_num = flr(5 + rnd(2 ^ day))
+    books_num = flr(rnd(day * 2)) + 1
 
     awareness = 50
     happiness = 50
