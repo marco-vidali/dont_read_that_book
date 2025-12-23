@@ -1,5 +1,6 @@
 function _init()
     day = 1
+    books_num = flr(5 + rnd(2 ^ day))
 
     awareness = 50
     happiness = 50
@@ -32,7 +33,13 @@ function _update()
             end
         end
 
-        book = rnd(books)
+        if books_num > 0 then
+            books_num -= 1
+            book = rnd(books)
+        else
+            day += 1
+            books_num = flr(5 + rnd(day * 2))
+        end
     end
 end
 
@@ -40,6 +47,7 @@ function _draw()
     cls()
 
     print("dAY " .. day, 0, 0, 7)
+    print("bOOKS LEFT: " .. books_num, 64, 0, 7)
 
     print("aWARENESS: " .. awareness .. "%", 0, 12, 14)
     print("hAPPINESS: " .. happiness .. "%", 0, 18, 10)
