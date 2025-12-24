@@ -111,24 +111,24 @@ function _draw()
     cls(6)
 
     -- outline
-    rect(32, 0, 96, 88, 0)
+    rect(32, 20, 96, 108, 0)
 
     -- background
-    rectfill(33, 1, 95, 87, 7)
+    rectfill(33, 21, 95, 107, 7)
 
     -- header
-    rectfill(34, 2, 94, 12, 0)
-    print_centered("s.a. bOOKS", 5, 7)
+    rectfill(34, 22, 94, 32, 0)
+    print_centered("s.a. bOOKS", 25, 7)
 
     -- content outline
-    rect(34, 14, 94, 86, 0)
+    rect(34, 34, 94, 106, 0)
 
     -- author
-    print_centered(book.author, 22, 0)
+    print_centered(book.author, 42, 0)
 
     -- title
-    print_centered(book.title, 34, 0, 50)
+    print_centered(book.title, 54, 0, 50)
 
     -- image
-    rectfill(40, 58, 88, 78, 0)
+    rectfill(40, 78, 88, 98, 0)
 end
