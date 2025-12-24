@@ -1,3 +1,5 @@
+palt(0, false)
+
 day = 1
 
 awareness = 50
@@ -106,25 +108,27 @@ function next_day()
 end
 
 function _draw()
-    cls()
+    cls(6)
 
-    print("dAY " .. day, 0, 0, 7)
-    print(hours .. ":" .. minutes, 109, 0, 7)
+    -- outline
+    rect(32, 0, 96, 88, 0)
 
-    print("aWARENESS: " .. awareness .. "%", 0, 12, 14)
-    print("hAPPINESS: " .. happiness .. "%", 0, 18, 10)
+    -- background
+    rectfill(33, 1, 95, 87, 7)
 
-    print("bOOKS LEFT: " .. books_num, 0, 30, 6)
+    -- header
+    rectfill(34, 2, 94, 12, 0)
+    print_centered("s.a. bOOKS", 5, 7)
 
-    print_wrapped(book.title, 0, 42, 12, 128)
-    print_wrapped(book.author, 0, 48, 9, 128)
-    print_wrapped(book.synopsis, 0, 54, 7, 128)
+    -- content outline
+    rect(34, 14, 94, 86, 0)
 
-    if choice == 1 then
-        print("pass", 0, 84, 11)
-        print("censor", 30, 84, 5)
-    elseif choice == 2 then
-        print("pass", 0, 84, 5)
-        print("censor", 30, 84, 8)
-    end
+    -- author
+    print_centered(book.author, 22, 0)
+
+    -- title
+    print_centered(book.title, 34, 0, 50)
+
+    -- image
+    rectfill(40, 58, 88, 78, 0)
 end
