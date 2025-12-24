@@ -5,22 +5,29 @@ day = 1
 awareness = 50
 happiness = 50
 
+book_x = 32
+book_y = 20
+
 function _init()
     hours = "08"
     minutes = "00"
     start_timer = time()
 
     books_num = flr(rnd(day ^ 1.2)) + 1
+    showing = "front"
+    choice = 1
+
+    next_book()
+end
+
+function next_book()
+    book = rnd(books)
+    book.price = flr(rnd(14)) + 5
 
     showing = "front"
     choice = 1
 
-    random_book()
-end
-
-function random_book()
-    book = rnd(books)
-    book.price = flr(rnd(14)) + 5
+    books_num -= 1
 end
 
 function _update()
@@ -95,9 +102,7 @@ function _update()
         end
 
         if books_num > 1 then
-            -- more books left today
-            books_num -= 1
-            random_book()
+            next_book()
         else
             next_day()
         end
@@ -127,10 +132,10 @@ function _draw()
     cls(6)
 
     -- outline
-    rect(32, 20, 96, 108, 0)
+    rect(book_x, book_y, book_x + 64, book_y + 88, 0)
 
     -- background
-    rectfill(33, 21, 95, 107, 7)
+    rectfill(book_x + 1, book_y + 1, book_x + 63, book_y + 87, 7)
 
     if showing == "front" then
         draw_book_front()
@@ -141,32 +146,32 @@ end
 
 function draw_book_front()
     -- header
-    rectfill(34, 22, 94, 32, 0)
-    print_centered("s.a. bOOKS", 25, 7)
+    rectfill(book_x + 2, book_y + 2, book_x + 62, book_y + 12, 0)
+    print_centered("s.a. bOOKS", book_y + 5, 7)
 
     -- content outline
-    rect(34, 34, 94, 106, 0)
+    rect(book_x + 2, book_y + 14, book_x + 62, book_y + 86, 0)
 
     -- author
-    print_centered(book.author, 42, 0)
+    print_centered(book.author, book_y + 22, 0)
 
     -- title
-    print_centered(wrap_text(book.title, 50), 54, 0)
+    print_centered(wrap_text(book.title, 50), book_y + 34, 0)
 
     -- image
-    rectfill(40, 78, 88, 98, 0)
+    rectfill(book_x + 8, book_y + 58, book_x + 56, book_y + 78, 0)
 end
 
 function draw_book_back()
     -- content outline
-    rect(34, 22, 94, 106, 0)
+    rect(book_x + 2, book_y + 2, book_x + 62, book_y + 86, 0)
 
-    -- author
-    print(wrap_text(book.synopsis, 52), 38, 26)
+    -- author / synopsis
+    print(wrap_text(book.synopsis, 52), book_x + 6, book_y + 6)
 
     -- price
-    print("$" .. book.price .. ".00", 38, 98)
+    print("$" .. book.price .. ".00", book_x + 6, book_y + 78)
 
     -- barcode
-    spr(1, 76, 97, 2, 1)
+    spr(1, book_x + 44, book_y + 77, 2, 1)
 end
