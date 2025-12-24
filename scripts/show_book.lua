@@ -12,8 +12,15 @@ function _init()
 
     books_num = flr(rnd(day ^ 1.2)) + 1
 
-    book = rnd(books)
+    showing = "front"
     choice = 1
+
+    random_book()
+end
+
+function random_book()
+    book = rnd(books)
+    book.price = flr(rnd(14)) + 5
 end
 
 function _update()
@@ -90,9 +97,18 @@ function _update()
         if books_num > 1 then
             -- more books left today
             books_num -= 1
-            book = rnd(books)
+            random_book()
         else
             next_day()
+        end
+    end
+
+    -- handle flip button press
+    if btnp(5) then
+        if showing == "front" then
+            showing = "back"
+        else
+            showing = "front"
         end
     end
 
@@ -116,6 +132,14 @@ function _draw()
     -- background
     rectfill(33, 21, 95, 107, 7)
 
+    if showing == "front" then
+        draw_book_front()
+    elseif showing == "back" then
+        draw_book_back()
+    end
+end
+
+function draw_book_front()
     -- header
     rectfill(34, 22, 94, 32, 0)
     print_centered("s.a. bOOKS", 25, 7)
@@ -127,8 +151,22 @@ function _draw()
     print_centered(book.author, 42, 0)
 
     -- title
-    print_centered(book.title, 54, 0, 50)
+    print_centered(wrap_text(book.title, 50), 54, 0)
 
     -- image
     rectfill(40, 78, 88, 98, 0)
+end
+
+function draw_book_back()
+    -- content outline
+    rect(34, 22, 94, 106, 0)
+
+    -- author
+    print(wrap_text(book.synopsis, 52), 38, 26)
+
+    -- price
+    print("$" .. book.price .. ".00", 38, 98)
+
+    -- barcode
+    spr(1, 76, 97, 2, 1)
 end

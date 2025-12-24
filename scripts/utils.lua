@@ -1,19 +1,12 @@
-function print_centered(text, y, color, max_pixel_width)
-    if max_pixel_width == nil then
-        max_pixel_width = 9999
-    end
-
+function wrap_text(text, max_pixel_width)
     local char_width = 4
-    local line_height = 6
-    local screen_width = 128
     local max_chars = flr(max_pixel_width / char_width)
-
+    local wrapped = ""
     local line = ""
-    local lines = {}
 
     for word in all(split(text, " ")) do
-        if #line + #word + 1 > max_chars then
-            add(lines, line)
+        if #line + #word + (#line > 0 and 1 or 0) > max_chars then
+            wrapped = wrapped .. line .. "\n"
             line = word
         else
             if line == "" then
@@ -23,15 +16,22 @@ function print_centered(text, y, color, max_pixel_width)
             end
         end
     end
-    add(lines, line)
 
-    for i, l in ipairs(lines) do
-        local line_pixel_width = #l * char_width
-        local x = flr((screen_width - line_pixel_width) / 2)
-        print(l, x, y + (i-1)*line_height, color)
-    end
+    wrapped = wrapped .. line
+    return wrapped
 end
 
+function print_centered(text, y, color)
+    local char_width = 4
+    local line_height = 6
+    local screen_width = 128
+
+    for i, line in ipairs(split(text, "\n")) do
+        local line_pixel_width = #line * char_width
+        local x = flr((screen_width - line_pixel_width) / 2)
+        print(line, x, y + (i-1)*line_height, color)
+    end
+end
 
 function split_words(str)
     local words = {}
