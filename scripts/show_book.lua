@@ -176,5 +176,5 @@ function draw_book_back()
     print("$" .. book.price .. ".00", book_x + 6, book_y + 78)
 
     -- barcode
-    spr(1, book_x + 44, book_y + 77, 2, 1)
+    spr(1, book_x + 44, book_y + 76, 2, 1)
 end
