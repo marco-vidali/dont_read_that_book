@@ -1,6 +1,3 @@
-palt(0, false)
-palt(5, true)
-
 day = 1
 
 awareness = 50
@@ -10,12 +7,12 @@ book_colors = {3, 4, 7, 8, 9, 10, 11, 12, 14, 15}
 book_x = 32
 book_y = 20
 
-function _init()
+function show_office()
     hours = "08"
     minutes = "00"
     start_timer = time()
 
-    books_num = flr(rnd(day ^ 1.2)) + 1
+    to_check = flr(rnd(day ^ 1.2)) + 1
     showing = "front"
     choice = 1
 
@@ -30,10 +27,20 @@ function next_book()
     showing = "front"
     choice = 1
 
-    books_num -= 1
+    to_check -= 1
 end
 
+----------------------------------------------------------------------------------------------------
+
 function _update()
+    update_clock()
+    change_choice()
+    handle_confirm()
+    handle_flip()
+    check_game_over()
+end
+
+function update_clock()
     -- update hours
     if (time() - start_timer) % 5 == 0 then
         if hours == "08" then
@@ -64,7 +71,7 @@ function _update()
 
     -- day has ended
     if hours == "16" and minutes == "00" then
-        for i = 1, books_num do
+        for i = 1, to_check do
             local j = flr(rnd(2))
 
             if j == 0 then
@@ -76,7 +83,9 @@ function _update()
 
         next_day()
     end
+end
 
+function change_choice()
     -- change choice selection
     if btnp(0) and choice > 1 then
         choice -= 1
@@ -85,8 +94,9 @@ function _update()
     if btnp(1) and choice < 2 then
         choice += 1
     end
+end
 
-    -- handle confirm button press
+function handle_confirm()
     if btnp(4) then
         if book.censored then
             -- censored book
@@ -104,14 +114,15 @@ function _update()
             end
         end
 
-        if books_num > 1 then
+        if to_check > 1 then
             next_book()
         else
             next_day()
         end
     end
+end
 
-    -- handle flip button press
+function handle_flip()
     if btnp(5) then
         if showing == "front" then
             showing = "back"
@@ -119,8 +130,9 @@ function _update()
             showing = "front"
         end
     end
+end
 
-    -- game over
+function check_game_over()
     if awareness > 75 or happiness < 25 then
         stop()
     end
@@ -128,11 +140,14 @@ end
 
 function next_day()
     day += 1
-    _init()
+    show_office()
 end
 
+----------------------------------------------------------------------------------------------------
+
 function _draw()
-    cls(6)
+    -- background
+    rectfill(0, 0, 127, 127, 6)
 
     -- outline
     rect(book_x, book_y, book_x + 64, book_y + 88, 0)
