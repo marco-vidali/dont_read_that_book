@@ -1,10 +1,12 @@
 palt(0, false)
+palt(5, true)
 
 day = 1
 
 awareness = 50
 happiness = 50
 
+book_colors = {3, 4, 7, 8, 9, 10, 11, 12, 14, 15}
 book_x = 32
 book_y = 20
 
@@ -23,6 +25,7 @@ end
 function next_book()
     book = rnd(books)
     book.price = flr(rnd(14)) + 5
+    book.color = rnd(book_colors)
 
     showing = "front"
     choice = 1
@@ -135,7 +138,7 @@ function _draw()
     rect(book_x, book_y, book_x + 64, book_y + 88, 0)
 
     -- background
-    rectfill(book_x + 1, book_y + 1, book_x + 63, book_y + 87, 7)
+    rectfill(book_x + 1, book_y + 1, book_x + 63, book_y + 87, book.color)
 
     if showing == "front" then
         draw_book_front()
@@ -147,7 +150,7 @@ end
 function draw_book_front()
     -- header
     rectfill(book_x + 2, book_y + 2, book_x + 62, book_y + 12, 0)
-    print_centered("s.a. bOOKS", book_y + 5, 7)
+    print_centered("s.a. bOOKS", book_y + 5, book.color)
 
     -- content outline
     rect(book_x + 2, book_y + 14, book_x + 62, book_y + 86, 0)
