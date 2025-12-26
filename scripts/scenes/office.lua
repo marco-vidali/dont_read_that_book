@@ -17,5 +17,7 @@ end
 
 function draw_office()
     rectfill(0, 0, 127, 127, 7)
+
     draw_book()
+    draw_day()
 end
