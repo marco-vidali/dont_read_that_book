@@ -50,3 +50,7 @@ function check_day_ended()
         next_day()
     end
 end
+
+function draw_clock()
+    print(hours .. ":" .. minutes, 106, 3, 0)
+end
