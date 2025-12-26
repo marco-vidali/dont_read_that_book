@@ -1,7 +1,3 @@
--- set gray as transparent color
-palt(0, false)
-palt(5, true)
-
 game = {}
 
 function _init()

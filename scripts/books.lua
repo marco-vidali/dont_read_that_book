@@ -1,124 +1,64 @@
-books = {
-  { title = "tHE qUIET iNVENTORY", author = "sAMUEL dOYLE", synopsis = "aN OFFICE CLERK CATALOGS FORGOTTEN OBJECTS AND NOTICES PATTERNS THAT MIRROR CIVIC CHOICES.", censored = true },
-  { title = "bAKING ON sUNDAYS", author = "hELEN mOORE", synopsis = "a SMALL-TOWN BAKER RECORDS RECIPES AND THE GENTLE RHYTHMS OF MORNING TRADE.", censored = false },
-  { title = "tHE mAP bETWEEN sTREETS", author = "aRTHUR bELL", synopsis = "a DELIVERY DRIVER REDRAWS THE CITY FROM MEMORY AND REFLECTS ON PATHS PEOPLE AVOID.", censored = true },
-  { title = "nOTES ON wEATHER", author = "cLARA wHITMAN", synopsis = "a PERSONAL JOURNAL DESCRIBES CLOUDS AND SMALL MOOD SHIFTS OVER A SINGLE SEASON.", censored = false },
-  { title = "iNSTRUCTIONS FOR aSSEMBLY", author = "lEONARD pRICE", synopsis = "a FACTORY MANUAL BECOMES A SLOW ESSAY ON REPETITION AND WHO IS VISIBLE IN LABOR.", censored = true },
-  { title = "sALTED wINDOWS", author = "mAYA kHAN", synopsis = "a SEASIDE WASHER DOCUMENTS PANES AND THE BRIEF CONVERSATIONS OF HARBOR WORKERS.", censored = false },
-  { title = "lEDGER OF mISSED mEETINGS", author = "jON rEED", synopsis = "a MUNICIPAL LEDGER LISTS APPOINTMENTS THAT WERE CANCELED AND HINTS AT UNSPOKEN PRIORITIES.", censored = true },
-  { title = "hERBAL eVENINGS", author = "iRENE mARIN", synopsis = "a GARDENER WRITES SHORT NOTES ON HERBS AND THE NEIGHBORS WHO BORROW THEM.", censored = false },
-  { title = "mARGINS OF A cITY", author = "vICTOR lOPEZ", synopsis = "a SCHOLAR COLLECTS MARGINAL NOTES FROM PUBLIC REPORTS AND SEES A HIDDEN LOGIC OF CARE.", censored = true },
-  { title = "sUNDAY rEPAIRS", author = "lENA hART", synopsis = "a REPAIRMAN JOURNALS SMALL FIXES AND THE GRATITUDE EXCHANGED OVER COFFEE.", censored = false },
-  { title = "cATALOGUE OF qUIET aCTS", author = "gIDEON gOLD", synopsis = "aN ARCHIVIST INDEXES ANONYMOUS DEEDS THAT, TOGETHER, SUGGEST AN ALTERNATE PUBLIC MEMORY.", censored = true },
-  { title = "eVENING bREAD", author = "nORA fISHER", synopsis = "a BAKER RECALLS CONVERSATIONS AT CLOSING TIME AND THE LITTLE FAVORS TRADED IN TOWN.", censored = false },
-  { title = "pAPER sTREETS", author = "pAUL cOLE", synopsis = "a CARTOGRAPHER FINDS ERASED LANES ON OLD MAPS AND WONDERS WHO REWROTE ROUTES FOR CONVENIENCE.", censored = true },
-  { title = "tHE cLOCK rEPAIR", author = "rUTH bENNETT", synopsis = "a CLOCKMAKER NOTES RHYTHMS OF A NEIGHBORHOOD AND HOW TIME FEELS TO DIFFERENT PEOPLE.", censored = false },
-  { title = "rEGISTER OF sMALL dEBTS", author = "oMAR dIAZ", synopsis = "a LEDGE OF IOUS UNCOVERS NETWORKS OF OBLIGATION THAT CHALLENGE OFFICIAL ACCOUNTS.", censored = true },
-  { title = "pONDSIDE rECIPES", author = "dORIS hARPER", synopsis = "a LIST OF SIMPLE RECIPES SHARED BY A TIGHT-KNIT COMMUNITY ACROSS SUMMERS.", censored = false },
-  { title = "tHE fIFTH nOTICE", author = "mILES sTONE", synopsis = "a DISCARDED NOTICE REVEALS PATTERNS OF WARNING AND WHO RECEIVES THEM FIRST.", censored = true },
-  { title = "lANTERNS AT dUSK", author = "fIONA wARD", synopsis = "a POET WRITES BRIEF SCENES OF LANTERN-LIT WALKS AND NEIGHBORS EXCHANGING STORIES.", censored = false },
-  { title = "iNVENTORY OF gIVING", author = "hANK bROOKS", synopsis = "aN INFORMAL INVENTORY RECORDS WHAT PEOPLE GIVE AWAY AND WHAT THAT IMPLIES ABOUT NEED.", censored = true },
-  { title = "nOTES FROM THE fERRY", author = "sOFIA gRAY", synopsis = "a FERRY WORKER JOTTING SMALL OBSERVATIONS ABOUT PASSENGERS AND THEIR SILENT RITUALS.", censored = false },
-  { title = "tHE hIDDEN kEY", author = "e. hARROW", synopsis = "a CLERK FINDS A KEY INDEX THAT LINKS MINOR PLACES TO ACTS OF CONSCIENCE.", censored = true },
-  { title = "mIDSUMMER mENDING", author = "cELIA rUIZ", synopsis = "nEIGHBORS GATHER TO MEND CLOTHES WHILE SWAPPING STORIES OF SMALL DAILY KINDNESSES.", censored = false },
-  { title = "pROCEDURE FOR qUIET cHANGE", author = "nOAH fINCH", synopsis = "a PROCEDURAL MANUAL, WHEN READ END TO END, SUGGESTS SUBTLE WAYS TO ALTER EXPECTATIONS.", censored = true },
-  { title = "pAPER bOATS", author = "iVY tAN", synopsis = "cHILDREN FOLD PAPER BOATS AND RACE THEM IN GUTTERS, SHOUTING NAMES ALOUD.", censored = false },
-  { title = "tHE iNDEX OF lOST vOICES", author = "oWEN cARLISLE", synopsis = "aN INDEX LISTS SPEAKERS WHO WERE IGNORED AND MAPS WHERE ATTENTION WAS WITHDRAWN.", censored = true },
-  { title = "aFTERNOON tEA nOTES", author = "rOSA bELLAMY", synopsis = "a COLLECTION OF SHORT REMINISCENCES SHARED OVER STEADY CUPS OF TEA.", censored = false },
-  { title = "bLUEPRINTS OF cOURTESY", author = "tREVOR hALE", synopsis = "oLD BLUEPRINTS ANNOTATED WITH MARGINALIA REVEAL UNSPOKEN RULES OF ACCESS.", censored = true },
-  { title = "tHE lITTLE aLMANAC", author = "jUNE pARK", synopsis = "a POCKET ALMANAC FOR GARDENERS WITH PLANTING DATES AND SMALL APHORISMS.", censored = false },
-  { title = "tHE qUIET cENSUS", author = "eMIL nOVAK", synopsis = "a PRIVATE CENSUS RECORDS DETAILS THAT CONTRADICT THE PUBLIC FIGURES AND PROMPTS QUESTIONS.", censored = true },
-  { title = "sUNDAY sKETCHES", author = "lOLA mENDES", synopsis = "tWO PAGES OF SKETCHES CAPTURING FACES AT THE MARKET AND PASSING GESTURES.", censored = false },
-  { title = "a mANUAL FOR sMALL rESISTANCES", author = "hECTOR lI", synopsis = "sTEP-BY-STEP NOTES ON TINY REFUSALS THAT, IN AGGREGATE, CHANGE HOW SYSTEMS BEHAVE.", censored = true },
-  { title = "tHE cORNER fLORIST", author = "mINA oRTIZ", synopsis = "a FLORIST NOTES WHICH FLOWERS ARE LEFT BEHIND AND THE BRIEF HOPES THEY REPRESENT.", censored = false },
-  { title = "cATALOG OF dOORS", author = "fELIX gRANT", synopsis = "a CATALOGING OF DOORWAYS AND WHO FEELS WELCOME TO USE THEM OVER TIME.", censored = true },
-  { title = "aFTERNOON wALKS", author = "pOLLY gRANT", synopsis = "a SHORT GUIDE TO PLEASANT ROUTES AND WHERE TO SIT FOR A QUIET HOUR.", censored = false },
-  { title = "mINUTES FROM THE bACK rOOM", author = "rAFAEL cOSTA", synopsis = "mINUTES BRIEFLY MENTION DECISIONS THAT QUIETLY RESHAPE NEIGHBORHOOD SERVICES.", censored = true },
-  { title = "sUNROOM pATTERNS", author = "eLLEN pRICE", synopsis = "a DESCRIPTION OF PATCHED QUILTS AND THE STORIES STITCHED INTO THEM.", censored = false },
-  { title = "a cATALOGUE OF sMALL pRIVILEGES", author = "mARCUS vALE", synopsis = "a LIST OF EVERYDAY PRIVILEGES REVEALS HOW ACCESS IS RATIONED ACROSS DIFFERENT STREETS.", censored = true },
-  { title = "tHE rECIPE iNDEX", author = "tARA sINGH", synopsis = "a HOMEBOUND RECIPE BOOK WITH MARGINAL NOTES ABOUT GUESTS AND THEIR TASTES.", censored = false },
-  { title = "aNNOTATIONS ON THE lEDGER", author = "gWEN mORRIS", synopsis = "aNNOTATIONS EXPOSE WHO REMAINS INVISIBLE IN FORMAL ACCOUNTING AND WHY IT MATTERS.", censored = true },
-  { title = "tHE bAKER'S mARGIN", author = "hIRAM cOLE", synopsis = "a BAKER'S MARGIN NOTES RECALL FAVORS DONE IN EXCHANGE FOR SILENCE AND SMILES.", censored = false },
-  { title = "rOUTES nOT tAKEN", author = "sILAS rEED", synopsis = "a COMMUTER'S NOTES DETAIL WHICH STOPS ARE AVOIDED AND WHICH COMMUNITIES ARE BYPASSED.", censored = true },
-  { title = "wINTER cANDLES", author = "aDA bROWNE", synopsis = "a SHORT COLLECTION OF WINTER MEMORIES AND THE CANDLES SET AT WINDOW SILLS.", censored = false },
-  { title = "tHE cARETAKER'S rEGISTER", author = "vERA sANTOS", synopsis = "a CARETAKER WRITES A REGISTER THAT HIGHLIGHTS MAINTENANCE CHOICES AND NEGLECTED CORNERS.", censored = true },
-  { title = "pOCKET pOEMS", author = "lUCA mORETTI", synopsis = "tINY POEMS ABOUT RAIN ON UMBRELLAS AND THE RHYTHM OF CITY COMMUTES.", censored = false },
-  { title = "tHE hANDBOOK OF sMALL dELAYS", author = "cELESTE yOUNG", synopsis = "a HANDBOOK NOTING HOW DELAY IS USED TO PRIORITIZE SOME REQUESTS OVER OTHERS.", censored = true },
-  { title = "tHE wINDOW sILL", author = "mARCO bELL", synopsis = "oBSERVATIONS OF PLANTS KEPT ON WINDOW SILLS AND WHO TENDS THEM DAILY.", censored = false },
-  { title = "rECORD OF uNCLAIMED tHINGS", author = "iRIS hALE", synopsis = "a RECORD OF ABANDONED ITEMS THAT SLOWLY REVEALS PATTERNS OF INEQUALITY.", censored = true },
-  { title = "lAUNDRY dAY nOTES", author = "tOMIKO sATO", synopsis = "a NEIGHBOR WRITES ABOUT WASHING DAYS AND THE SMALL EXCHANGES THAT OCCUR AT THE LINE.", censored = false },
-  { title = "bRIEF ON pUBLIC qUIET", author = "cONRAD pIKE", synopsis = "a BRIEF THAT READS LIKE CIVIC ADVICE, NUDGING HOW PUBLIC ATTENTION MIGHT BE REDIRECTED.", censored = true },
-  { title = "tHE sUNDAY qUILT", author = "nAOMI oRTIZ", synopsis = "a QUILT PATTERN PASSED DOWN WITH ANNOTATIONS NAMING WOMEN WHO STITCHED IT TOGETHER.", censored = false },
-  { title = "lEDGER OF oPEN wINDOWS", author = "aRMAN qURESHI", synopsis = "aN INDEX OF OPEN WINDOWS DOCUMENTS WHO TOLERATES NOISE AND WHO MUST REMAIN SILENT.", censored = true },
-  { title = "mARKET pRICES AND sTORIES", author = "rINA pATEL", synopsis = "a MARKET SELLER LISTS PRICES ALONGSIDE SHORT STORIES ABOUT REGULARS.", censored = false },
-  { title = "gUIDELINES FOR sILENT mEETINGS", author = "hAROLD kIM", synopsis = "a SHORT GUIDE THAT, WHEN FOLLOWED, SYSTEMATICALLY EXCLUDES CERTAIN VOICES FROM MEETINGS.", censored = true },
-  { title = "tHE lITTLE mUSIC bOOK", author = "sASHA iVANOV", synopsis = "a COMPACT COLLECTION OF SIMPLE MELODIES LEARNED FROM NEIGHBORS AND DISTANT RADIOS.", censored = false },
-  { title = "nOTES ON sHARED tOOLS", author = "dANTE rUIZ", synopsis = "a REGISTER OF SHARED TOOLS REVEALS WHO BORROWS AND WHO CANNOT GAIN ACCESS.", censored = true },
-  { title = "eVENING cHORES", author = "mARTA lEONE", synopsis = "qUICK ENTRIES ABOUT CHORES COMPLETED BEFORE DINNER AND THE SMALL COMFORTS THAT FOLLOW.", censored = false },
-  { title = "tHE sILENT dISTRIBUTION", author = "pRIYA sHAH", synopsis = "a DISTRIBUTION LIST SHOWS HOW SCARCE RESOURCES ARE QUIETLY REDIRECTED TO FAVORED GROUPS.", censored = true },
-  { title = "a hANDFUL OF lETTERS", author = "jONAS rEED", synopsis = "a SEQUENCE OF BRIEF LETTERS EXCHANGED BETWEEN NEIGHBORS OVER A SUMMER.", censored = false },
-  { title = "tHE gUIDE TO fOLDING mAPS", author = "nADIA pETROVA", synopsis = "a FOLDING MANUAL THAT HIDES AN ALTERNATIVE MAP FOR FINDING COMMUNITY GATHERINGS.", censored = true },
-  { title = "pORCH cONVERSATIONS", author = "eLI nAVARRO", synopsis = "sHORT DIALOGUES OVERHEARD ON PORCHES THAT CAPTURE THE TOWN'S SMALL HUMOR.", censored = false },
-  { title = "aN iNDEX OF sILENCES", author = "rUTH kLEIN", synopsis = "aN INDEX CATALOGS SILENCES AT MEETINGS AND WHERE QUESTIONS WERE LEFT UNANSWERED.", censored = true },
-  { title = "tHE gUIDE TO sIMPLE rEPAIRS", author = "hUGO mARTINS", synopsis = "a STRAIGHTFORWARD GUIDE TO MENDING EVERYDAY ITEMS FOR HOUSEHOLD INDEPENDENCE.", censored = false },
-  { title = "nOTES FROM THE wELFARE lINE", author = "aSHA mENON", synopsis = "a SET OF NOTES THAT HIGHLIGHTS PATTERNS IN WHO RECEIVES ASSISTANCE AND WHO IS TURNED AWAY.", censored = true },
-  { title = "tEA tINS AND pOSTCARDS", author = "lORENZ wEBER", synopsis = "a KEEPER OF TINS AND POSTCARDS RECORDS SMALL HISTORIES OF TRAVEL AND RETURN.", censored = false },
-  { title = "a sHORT mANUAL ON oBEDIENCE", author = "hELGA bRAUN", synopsis = "a MANUAL READS LIKE INSTRUCTION BUT PROMPTS READERS TO CONSIDER WHY OBEDIENCE IS EXPECTED.", censored = true },
-  { title = "lANTERN mAINTENANCE", author = "dEREK sHAW", synopsis = "bRIEF INSTRUCTIONS FOR CARING FOR LANTERNS IN COMMUNAL SPACES AND PASSING THEM ON.", censored = false },
-  { title = "tHE nEIGHBORHOOD lEDGER", author = "mARTA sILVA", synopsis = "a LEDGER THAT MARKS PATTERNS OF MAINTENANCE SPENDING AND WHO BENEFITS MOST.", censored = true },
-  { title = "sTITCHING nOTES", author = "pILAR gOMEZ", synopsis = "a SEAMSTRESS LISTS STITCHES AND SMALL STORIES TRADED DURING LONG AFTERNOONS.", censored = false },
-  { title = "pOSTMARKED cHOICES", author = "aLEXEI mOROZOV", synopsis = "a SET OF POSTMARKS TIES CORRESPONDENCE TO DECISION POINTS THAT CHANGE ACCESS TO SERVICES.", censored = true },
-  { title = "wINDOW gARDENS", author = "sAMIYA rAHMAN", synopsis = "sIMPLE NOTES ABOUT BALCONY PLANTS AND THE RITUALS OF TENDING THEM AT DAWN.", censored = false },
-  { title = "tHE hANDBOOK OF rEDIRECTS", author = "cONNIE pARK", synopsis = "a HANDBOOK DESCRIBING BUREAUCRATIC REDIRECTS THAT SYSTEMATICALLY ALTER WHO GETS HELP.", censored = true },
-  { title = "aFTERNOON cALLS", author = "gARRY fINCH", synopsis = "a SHORT LOG OF CALLS AND THE SMALL FAVORS ARRANGED BETWEEN FRIENDS.", censored = false },
-  { title = "tHE iNDEX OF fORGOTTEN nAMES", author = "lARS eNGSTROM", synopsis = "aN INDEX RESURRECTS NAMES OMITTED FROM OFFICIAL RECORDS AND ASKS WHY THEY WERE LOST.", censored = true },
-  { title = "tHE sMALL lAMP", author = "mANDY cHOU", synopsis = "a BRIEF NOTE ON A LAMP KEPT AT A KITCHEN TABLE AND THE CONVERSATIONS IT WARMED.", censored = false },
-  { title = "iNSTRUCTIONS IN mINOR rEBELLION", author = "pABLO rIOS", synopsis = "a POCKET GUIDE LISTS TINY ACTS OF REFUSAL THAT ACCUMULATE INTO VISIBLE CHANGE.", censored = true },
-  { title = "tHE mARKET lEDGER", author = "gRETA oLSEN", synopsis = "a LEDGER OF DAILY SALES ACCOMPANIED BY QUICK, FOND DESCRIPTIONS OF CUSTOMERS.", censored = false },
-  { title = "cATALOG OF sHARED hISTORIES", author = "iBRAHIM nOOR", synopsis = "a CATALOG ALIGNS PERSONAL HISTORIES TO REVEAL OVERLAPPING CLAIMS TO PLACE.", censored = true },
-  { title = "pORCHLIGHT sTORIES", author = "yARA hADDAD", synopsis = "sHORT ANECDOTES TOLD UNDER PORCHLIGHTS ABOUT NEIGHBORS AND OLD JOKES.", censored = false },
-  { title = "bRIEF ON aLLOCATION", author = "rOLAND pHELPS", synopsis = "a BRIEF THAT QUIETLY OUTLINES HOW RESOURCES ARE ALLOCATED AWAY FROM CERTAIN AREAS.", censored = true },
-  { title = "tHE lITTLE bIRD bOOK", author = "fAYE dONOVAN", synopsis = "a SIMPLE BIRDWATCHING LOG WITH TINY DRAWINGS AND LOCAL NAMES.", censored = false },
-  { title = "nOTES ON wHO sPEAKS", author = "dIEGO aLONSO", synopsis = "oBSERVATIONS OF PUBLIC MEETINGS SHOWING WHO IS HEARD FIRST AND WHY THAT ORDER PERSISTS.", censored = true },
-  { title = "cUPBOARD iNVENTORY", author = "nELL cARTER", synopsis = "a NEAT INVENTORY OF PANTRY ITEMS AND THE RECIPES THAT USE THEM MOST.", censored = false },
-  { title = "mANUAL OF qUIET oRGANIZATION", author = "sOREN bECK", synopsis = "a MANUAL THAT SUGGESTS ORGANIZING TECHNIQUES WHICH SUBTLY CHANGE POWER BALANCES.", censored = true },
-  { title = "eVENING pOSTCARDS", author = "mARTA fLORES", synopsis = "a SET OF SHORT POSTCARD-LIKE NOTES EXCHANGED BETWEEN FRIENDS ACROSS A YEAR.", censored = false },
-  { title = "tHE rEGISTER OF sMALL cLAIMS", author = "hANA kIM", synopsis = "a REGISTER NOTES MINOR CLAIMS AND HOW THE SYSTEM RESOLVES THEM UNEVENLY.", censored = true },
-  { title = "sEED pACKETS", author = "oLLIE mARSH", synopsis = "pACKETS OF SEEDS LABELED WITH PLANTING TIPS AND THE GARDENERS WHO PREFER THEM.", censored = false },
-  { title = "a nOTE ON THE cOMMONS", author = "rORY bLAKE", synopsis = "a SHORT NOTE ARGUING THAT SMALL SHARED SPACES CHANGE WHEN CERTAIN RULES ARE ENFORCED.", censored = true },
-  { title = "tHE eVENING lEDGER", author = "fIONA pARK", synopsis = "a LEDGER KEPT BY A CARETAKER LISTING DAILY INCIDENTS AND SMALL RECONCILIATIONS.", censored = false },
-  { title = "tHE gUIDE TO qUIET eXITS", author = "mARKUS lECLERC", synopsis = "a GUIDE OUTLINES WAYS PEOPLE QUIETLY REMOVE THEMSELVES FROM OBLIGATIONS AND WHAT FOLLOWS.", censored = true },
-  { title = "pORCH pLANT cARE", author = "iSLA rOMERO", synopsis = "sIMPLE CARE TIPS FOR PORCH PLANTS AND NOTES ON WHO WATERS THEM MOST MORNINGS.", censored = false },
-  { title = "iNDEX OF sMALL oMISSIONS", author = "vICTOR aMES", synopsis = "aN INDEX OF OMISSIONS IN REPORTS THAT, WHEN READ TOGETHER, CHANGE THE NARRATIVE OF EVENTS.", censored = true },
-  { title = "hANDFUL OF rHYMES", author = "jUNE cARTER", synopsis = "a SLIM COLLECTION OF RHYMES MEANT FOR QUICK RECITATION AND NEIGHBORHOOD GAMES.", censored = false },
-  { title = "a bRIEF ON sURVEILLANCE hABITS", author = "lIAM fOX", synopsis = "a BRIEF THAT CATALOGS EVERYDAY WATCHFULNESS AND THE SYSTEMS THAT FORMALIZE IT.", censored = true },
-  { title = "tHE mARKET sKETCHBOOK", author = "rHEA dAS", synopsis = "sKETCHES OF STALLS AND THE SMALL GESTURES SELLERS USE TO GREET REGULARS.", censored = false },
-  { title = "nOTES ON oPENING hOURS", author = "dANIEL cHO", synopsis = "a SET OF NOTES SHOWING HOW OPENING HOURS PRIVILEGE CERTAIN ROUTINES OVER OTHERS.", censored = true },
-  { title = "kITCHEN cORNERS", author = "aYA nAKAMURA", synopsis = "sHORT SCENES SET IN KITCHEN CORNERS WHERE SMALL DECISIONS ARE MADE AND SHARED.", censored = false },
-  { title = "aNNOTATIONS ON dISTRIBUTION", author = "gREGORY mOSS", synopsis = "aNNOTATIONS IN DISTRIBUTION LISTS REVEAL PRIORITIZATION HIDDEN IN PLAIN SIGHT.", censored = true },
-  { title = "pOCKET aTLAS OF bENCHES", author = "lINA gARZA", synopsis = "a TINY ATLAS POINTING TO FAVORED BENCHES AND THE PEOPLE WHO OCCUPY THEM.", censored = false },
-  { title = "mINUTES tHAT wERE nOT aNNOUNCED", author = "hASSAN kARIM", synopsis = "uNANNOUNCED MINUTES EXPOSE DECISIONS TAKEN BEFORE PUBLIC DISCUSSION BEGINS.", censored = true },
-  { title = "lITTLE rECIPES FOR rAINY dAYS", author = "bETH lOWELL", synopsis = "rECIPES AND SUGGESTIONS FOR MEALS THAT COMFORT DURING LONG RAINY AFTERNOONS.", censored = false },
-  { title = "tHE uNMARKED mAP", author = "oRLA bYRNE", synopsis = "aN UNMARKED MAP SHOWS MEETING PLACES OMITTED FROM OFFICIAL GUIDES AND WHY THEY MATTER.", censored = true },
-  { title = "tHE fLORIST'S lEDGER", author = "mILOS nOVAK", synopsis = "a LEDGER OF SALES WITH SMALL NOTES ABOUT CEREMONIES AND THE PEOPLE WHO ATTEND THEM.", censored = false },
-  { title = "gUIDE TO qUIET eNROLLMENT", author = "sOFIA tAL", synopsis = "a GUIDE DESCRIBING ENROLLMENT PRACTICES THAT QUIETLY FAVOR SOME APPLICANTS OVER OTHERS.", censored = true },
-  { title = "tHE pOCKET sONGBOOK", author = "rAFI bLOOM", synopsis = "a SHORT SONGBOOK PASSED AMONG FRIENDS FOR SINGALONGS ON LONG WALKS.", censored = false },
-  { title = "tHE iNDEX OF mINOR eXCEPTIONS", author = "jUNE pARKES", synopsis = "aN INDEX LISTING EXCEPTIONS THAT, WHEN TALLIED, SHOW SYSTEMATIC DIVERGENCE FROM RULES.", censored = true },
-  { title = "sTREETCORNER sTORIES", author = "kAMILAH jONES", synopsis = "qUICK STORIES OVERHEARD AT STREET CORNERS ABOUT SMALL MOMENTS OF KINDNESS.", censored = false },
-  { title = "nOTES ON rESERVED sEATS", author = "lEONARD aMES", synopsis = "oBSERVATIONS ON WHO GETS RESERVED SEATING AND HOW THOSE PATTERNS PERSIST UNNOTICED.", censored = true },
-  { title = "a lITTLE gUIDE TO cOMPOST", author = "nADIA cOOK", synopsis = "pRACTICAL COMPOSTING TIPS AND A FEW SHORT TALES OF NEIGHBORHOOD SWAPS.", censored = false },
-  { title = "mANUAL OF sOFT eXCLUSION", author = "oWEN hARTLEY", synopsis = "a MANUAL THAT DESCRIBES SUBTLE PRACTICES OF EXCLUSION DISGUISED AS EFFICIENCY.", censored = true },
-  { title = "tHE pOCKET cALENDAR", author = "mIRA sANTOS", synopsis = "a SMALL CALENDAR WITH NOTES ABOUT MARKETS, MOONS, AND ANNUAL TRADITIONS.", censored = false },
-  { title = "aNNOTATIONS FROM THE bACK dOOR", author = "cYRUS bELL", synopsis = "sHORT ANNOTATIONS ABOUT WHO USES THE BACK DOOR AND WHAT THAT REVEALS ABOUT ACCESS.", censored = true },
-  { title = "nEIGHBORHOOD sONGLINES", author = "zARA mALIK", synopsis = "sHORT REFRAINS THAT NEIGHBORS HUM WHILE WALKING FAMILIAR ROUTES.", censored = false },
-  { title = "gUIDE TO qUIET tRANSFERS", author = "pETER lIAO", synopsis = "a CONCISE GUIDE DESCRIBING HOW TRANSFERS OF GOODS ARE ROUTED AWAY FROM SCRUTINY.", censored = true },
-  { title = "tHE lITTLE sEED cATALOG", author = "nOELLE cRUZ", synopsis = "a SEED CATALOG WITH SMALL NOTES ON WHICH VARIETIES THRIVE IN CERTAIN YARDS.", censored = false },
-  { title = "rEGISTER OF lAST wORDS", author = "hANNAH pRICE", synopsis = "a REGISTER OF FINAL UTTERANCES IN COUNCIL HEARINGS THAT HINT AT SUPPRESSED QUESTIONS.", censored = true },
-  { title = "tHE mARKET'S bRIEF tALES", author = "eVAN wRIGHT", synopsis = "sHORT TALES TOLD BETWEEN STALLS ABOUT THE YEAR'S ODD EVENTS AND SMALL RECOVERIES.", censored = false },
-  { title = "nOTES ON aCCESS cODES", author = "mARTA sILVA", synopsis = "nOTES ABOUT CODES AND KEYS THAT DETERMINE WHO CAN ENTER CERTAIN SPACES.", censored = true },
-  { title = "lILAC eVENINGS", author = "jON pEREZ", synopsis = "a BRIEF COLLECTION OF EVENINGS SPENT BENEATH LILAC BUSHES AND QUIET EXCHANGES.", censored = false },
-  { title = "a sHORT hANDBOOK OF rEDIRECTION", author = "cLARA vOSS", synopsis = "a HANDBOOK SHOWING HOW REQUESTS ARE REDIRECTED AND WHICH COMMUNITIES ARE MARGINALIZED.", censored = true },
-  { title = "sMALL tALES OF THE bUS sTOP", author = "dIEGO fLORES", synopsis = "a STRING OF SMALL TALES OVERHEARD AT THE BUS STOP OVER A SINGLE WEEK.", censored = false },
-  { title = "iNDEX OF fORGOTTEN sERVICES", author = "rOSA jIMENEZ", synopsis = "aN INDEX DOCUMENTING SERVICES THAT WERE CUT AND THE POPULATIONS THAT SUFFERED MOST.", censored = true },
-  { title = "pOCKET iNSTRUCTIONS FOR tEA", author = "lIAM o'cONNELL", synopsis = "sHORT INSTRUCTIONS FOR BREWING TEA THE LOCAL WAY AND THE STORIES TIED TO EACH CUP.", censored = false }
-}
+book_colors = {3, 4, 6, 7, 8, 9, 10, 11, 12, 14, 15}
+books_x = 32
+books_y = 20
+
+function init_books()
+	books_to_check = flr(rnd(day ^ 1.2)) + 1
+	random_book()
+end
+
+function random_book()
+    book = rnd(books_list)
+    book.price = flr(rnd(14)) + 5
+    book.color = rnd(book_colors)
+
+    books_to_check -= 1
+
+    viewing_side = "front"
+	selected_action = "pass"
+end
+
+function flip_book()
+    if btnp(5) then
+        if viewing_side == "front" then
+            viewing_side = "back"
+		elseif viewing_side == "back" then
+            viewing_side = "front"
+        end
+    end
+end
+
+function draw_book()
+    -- outline
+    rect(books_x, books_y, books_x + 64, books_y + 88, 0)
+
+    -- background
+    rectfill(books_x + 1, books_y + 1, books_x + 63, books_y + 87, book.color)
+
+    if viewing_side == "front" then
+		-- header
+		rectfill(books_x + 2, books_y + 2, books_x + 62, books_y + 12, 0)
+		print_centered("s.a. bOOKS", books_y + 5, book.color)
+
+		-- content outline
+		rect(books_x + 2, books_y + 14, books_x + 62, books_y + 86, 0)
+
+		-- author
+		print_centered(book.author, books_y + 22, 0)
+
+		-- title
+		print_centered(wrap_text(book.title, 50), books_y + 34, 0)
+
+		-- image
+		rectfill(books_x + 8, books_y + 58, books_x + 56, books_y + 78, 0)
+    elseif viewing_side == "back" then
+		-- content outline
+		rect(books_x + 2, books_y + 2, books_x + 62, books_y + 86, 0)
+
+		-- author
+		print(wrap_text(book.synopsis, 52), books_x + 6, books_y + 6)
+
+		-- price
+		print("$" .. book.price .. ".00", books_x + 36, books_y + 78)
+    end
+end

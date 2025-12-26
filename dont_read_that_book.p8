@@ -4,7 +4,14 @@ __lua__
 #include scripts/books.lua
 #include scripts/utils.lua
 #include scripts/game.lua
-#include scripts/office.lua
+#include scripts/actions.lua
+#include scripts/books.lua
+#include scripts/clock.lua
+#include scripts/colors.lua
+#include scripts/days.lua
+#include scripts/stats.lua
+#include scripts/books_list.lua
+#include scripts/scenes/office.lua
 __gfx__
 00000000050050500050505000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000050050500050505000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
