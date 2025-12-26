@@ -3,7 +3,7 @@ day = 1
 awareness = 50
 happiness = 50
 
-book_colors = {3, 4, 7, 8, 9, 10, 11, 12, 14, 15}
+book_colors = {3, 4, 6, 7, 8, 9, 10, 11, 12, 14, 15}
 book_x = 32
 book_y = 20
 
@@ -147,7 +147,7 @@ end
 
 function _draw()
     -- background
-    rectfill(0, 0, 127, 127, 6)
+    rectfill(0, 0, 127, 127, 7)
 
     -- outline
     rect(book_x, book_y, book_x + 64, book_y + 88, 0)
