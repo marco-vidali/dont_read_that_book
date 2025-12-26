@@ -13,6 +13,7 @@ function update_office()
     confirm_action()
     flip_book()
     check_stats()
+    check_day_ended()
 end
 
 function draw_office()
