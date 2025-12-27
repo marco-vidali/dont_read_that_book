@@ -22,4 +22,5 @@ function draw_office()
     draw_book()
     draw_day()
     draw_clock()
+    draw_actions()
 end

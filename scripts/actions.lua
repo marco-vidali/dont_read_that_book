@@ -37,3 +37,13 @@ function confirm_action()
         end
     end
 end
+
+function draw_actions()
+    if selected_action == "pass" then
+        print("pASS", 39, 116, 0)
+        print("cENSOR", 67, 116, 5)
+    elseif selected_action == "censor" then
+        print("pASS", 39, 116, 5)
+        print("cENSOR", 67, 116, 0)
+    end
+end
